@@ -18,13 +18,13 @@ func main() {
 		log.Fatal("file does not exist")
 	}
 
-	srcFile, err := os.Open(src)
+	file, err := os.Open(src)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer srcFile.Close()
+	defer file.Close()
 
-	scanner := bufio.NewScanner(srcFile)
+	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line[0] == '#' {
